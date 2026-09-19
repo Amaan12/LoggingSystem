@@ -4,6 +4,47 @@ A lightweight, zero-allocation, category-based logging system for Unity inspired
 
 ---
 
+## Installation
+
+### Method 1: Unity Package Manager via Git URL (Recommended)
+
+1. In the Unity Editor, open **Window > Package Manager**.
+2. Click the **`+`** button in the top-left toolbar.
+3. Select **Add package from git URL...**.
+4. Enter the repository URL:
+   ```text
+   https://github.com/Amaan12/LoggingSystem.git
+   ```
+5. Click **Add**. Unity will automatically fetch and install the package.
+
+### Method 2: Via `Packages/manifest.json`
+
+Add the package entry directly to your project's `Packages/manifest.json` under `dependencies`:
+```json
+{
+  "dependencies": {
+    "com.amaan.loggingsystem": "https://github.com/Amaan12/LoggingSystem.git",
+    ...
+  }
+}
+```
+
+---
+
+## Setup & Sample Configuration
+
+`LogService` loads channels from `Resources/Logger/LoggerRegistrySO`. To get started with the pre-configured channels:
+
+1. In the **Package Manager** window, select **Logging System** under **Packages**.
+2. Switch to the **Samples** tab in the details panel on the right.
+3. Click **Import** next to **Default Resources**.
+   * Unity imports the sample assets to `Assets/Samples/Logging System/1.0.0/Resources/Logger`.
+   * Because Unity scans all `Resources` folders across your project, `LogService` will detect it right away.
+4. *(Optional)* Alternatively, you can move the imported `Resources` folder to your project's root asset directory (`Assets/Resources/Logger`).
+5. Customize, toggle, or add channels in `Resources/Logger/Loggers/` to fit your project.
+
+---
+
 ## Why This System? (Design Rationale)
 
 * **Cross-Cutting Service Locator:** Logging is a cross-cutting concern. While `[SerializeField]` dependency injection works, `LogService` provides instant global access without wiring dependencies across every prefab.
@@ -65,7 +106,7 @@ using Project.Logging;
 public class PlayerController : MonoBehaviour
 {
     LoggerSO Logger;
-    [SerializeField] LoggerSO Logger; // Alternatively.
+    // Alternatively: [SerializeField] LoggerSO Logger;
 
     void Awake()
     {
@@ -98,3 +139,9 @@ static LoggerSO Logger => logger ??= LogService.GetLogger(LoggerType.GameManager
 3. All `LoggerSO.Log(...)` method bodies compile into empty no-ops in player builds.
 4. Logs remain **fully enabled in the Unity Editor** regardless of build settings.
 5. Standard `Debug.LogWarning` and `Debug.LogError` calls remain untouched so critical runtime issues are still reported.
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.

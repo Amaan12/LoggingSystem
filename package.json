@@ -1,0 +1,32 @@
+{
+  "name": "com.amaan.loggingsystem",
+  "version": "1.0.0",
+  "displayName": "Logging System",
+  "description": "A lightweight, zero-allocation, category-based logging system for Unity featuring colored and gradient console channels, service-locator access, and build stripping.",
+  "unity": "2021.3",
+  "license": "MIT",
+  "author": {
+    "name": "Amaan",
+    "email": "imamaan123@gmail.com",
+    "url": "https://github.com/Amaan12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Amaan12/LoggingSystem.git"
+  },
+  "keywords": [
+    "logging",
+    "logger",
+    "debug",
+    "console",
+    "service-locator"
+  ],
+  "samples": [
+    {
+      "displayName": "Default Resources",
+      "description": "Default Logger ScriptableObjects and Registry asset to be placed in your project's Resources folder.",
+      "path": "Samples~/Resources"
+    }
+  ],
+  "dependencies": {}
+}

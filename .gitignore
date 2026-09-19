@@ -1,0 +1,48 @@
+# OS-generated files
+[Dd]esktop.ini
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+[Tt]humbs.db
+
+# Visual Studio / VS Code / JetBrains Rider cache & projects
+.vs/
+.vscode/
+.idea/
+*.sln
+*.csproj
+*.unityproj
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity temporary folders (if opened in a Unity project context)
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# Crash logs
+sysinfo.txt
+crashpad_handler.log
+
+# Ensure meta files and package files are tracked
+!*.meta
+!package.json
+!package.json.meta
+!Samples~/**
