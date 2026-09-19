@@ -2,6 +2,8 @@
 
 A lightweight, zero-allocation, category-based logging system for Unity inspired by Jason Storey's logger architecture. Features colored and gradient console channels, service-locator access, and one-symbol build stripping.
 
+![Log Output Preview](LogAllTest.png)
+
 ---
 
 ## Installation
