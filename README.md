@@ -115,11 +115,18 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        // Null-safe invocation: if Logger is commented out in Awake, nothing runs
+        // 1. Static text (no variables)
         Logger?.Log("Player initialized");
 
-        // Zero allocation with string interpolation (evaluated only if logs are enabled)
+        // 2. String interpolation (dynamic variables)
         Logger?.Log(() => $"Player health: {health}/{maxHealth}");
+
+        // 3. Multi-line or loops
+        Logger?.Log(sb => {
+            sb.AppendLine("Equipped items:");
+            foreach (var item in equippedItems)
+                sb.AppendLine($"- {item.name}");
+        });
     }
 }
 ```
@@ -129,6 +136,34 @@ public class PlayerController : MonoBehaviour
 static LoggerSO logger;
 static LoggerSO Logger => logger ??= LogService.GetLogger(LoggerType.GameManager);
 ```
+
+---
+
+### When to Use Which Overload
+
+* **Direct String (`Logger?.Log("Text")`):**
+  * **Use for:** Static text with no variables.
+  * **Why:** String literals are interned at compile time. When disabled, this has zero heap allocations and avoids any delegate overhead.
+* **Lambda (`Logger?.Log(() => $"Value: {val}")`):**
+  * **Use for:** Any message with string interpolation (`$"..."`) or variable formatting.
+  * **Why:** Defers string construction. When the channel is disabled, string formatting and string allocation are completely skipped.
+* **StringBuilder (`Logger?.Log(sb => ...)`):**
+  * **Use for:** Large dumps, multi-line logs, or assembling text across loops.
+  * **Why:** Reuses an internal buffer, avoiding repeated intermediate string allocations during loop iterations.
+
+---
+
+### Optimization Comparison
+
+| Log Method | When Enabled | When Disabled |
+| :--- | :--- | :--- |
+| **`Debug.Log($"...")`** *(Unity default)* | Full cost: formats string, crosses native C++ boundary, and captures stack trace. | Formats string and allocates heap memory before checking log level; crosses native boundary. |
+| **`Logger?.Log("...")`** *(Direct String)* | Same as `Debug.Log` (appends prefix and logs). | **Zero heap allocation.** Immediate exit; completely skips native engine and stack trace. |
+| **`Logger?.Log(() => $"...")`** *(Lambda)* | Small delegate overhead, then logs normally (difference vs `Debug.Log` is negligible). | **Highly optimized.** Interpolation never executes, saving string allocation, native calls, and stack traces. |
+| **`Logger?.Log(sb => ...)`** *(StringBuilder)* | **Most memory-efficient for long logs.** Reuses buffer; avoids intermediate strings. | Block never executes; no string construction or native calls. |
+
+> [!TIP]
+> **Null-Conditional Muting:** If `Logger` is not initialized or set to `null` (e.g., commented out in `Awake`), C#'s `?.` operator skips argument evaluation and closures entirely, resulting in zero overhead.
 
 ---
 
