@@ -35,13 +35,16 @@ Add the package entry directly to your project's `Packages/manifest.json` under 
 
 `LogService` loads channels from `Resources/Logger/LoggerRegistrySO`. To get started with the pre-configured channels:
 
-1. In the **Package Manager** window, select **Logging System** under **Packages**.
+1. In the **Package Manager** window, select **LoggingSystem** under **Packages**.
 2. Switch to the **Samples** tab in the details panel on the right.
-3. Click **Import** next to **Default Resources**.
-   * Unity imports the sample into your project with the direct `Resources/Logger/LoggerRegistrySO` folder structure (located at `Assets/Samples/Logging System/1.0.0/Default Resources/Resources/Logger/`).
+3. Click **Import** next to **Resources**.
+   * Unity imports the sample into your project directly as:
+     ```text
+     Assets/Samples/LoggingSystem/1.0.0/Resources/Logger/
+     ```
    * Because Unity automatically indexes any folder named `Resources` anywhere in the project, `LogService` finds `Resources/Logger/LoggerRegistrySO` out-of-the-box!
-4. *(Optional)* If you prefer your resources directly under the root `Assets/Resources` folder, you can simply move or copy the `Resources/Logger` folder into `Assets/Resources/Logger`.
-5. Customize, toggle, or add channels in `Resources/Logger/Loggers/` to fit your project.
+4. *(Optional)* If you prefer keeping resources under the root `Assets/Resources` folder, you can also move or copy the `Logger` folder to `Assets/Resources/Logger`.
+5. Customize, toggle, or add channels in `Logger/Loggers/` to fit your project.
 
 ---
 

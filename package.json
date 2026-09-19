@@ -1,7 +1,7 @@
 {
   "name": "com.amaan.loggingsystem",
   "version": "1.0.0",
-  "displayName": "Logging System",
+  "displayName": "LoggingSystem",
   "description": "A lightweight, zero-allocation, category-based logging system for Unity featuring colored and gradient console channels, service-locator access, and build stripping.",
   "unity": "2021.3",
   "license": "MIT",
@@ -23,9 +23,9 @@
   ],
   "samples": [
     {
-      "displayName": "Default Resources",
-      "description": "Default Logger ScriptableObjects and Registry asset in Resources/Logger structure.",
-      "path": "Samples~/Default Resources"
+      "displayName": "Resources",
+      "description": "Default Logger ScriptableObjects and Registry asset.",
+      "path": "Samples~/Resources"
     }
   ],
   "dependencies": {}
