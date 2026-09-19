@@ -24,8 +24,8 @@
   "samples": [
     {
       "displayName": "Default Resources",
-      "description": "Default Logger ScriptableObjects and Registry asset to be placed in your project's Resources folder.",
-      "path": "Samples~/Resources"
+      "description": "Default Logger ScriptableObjects and Registry asset in Resources/Logger structure.",
+      "path": "Samples~/Default Resources"
     }
   ],
   "dependencies": {}

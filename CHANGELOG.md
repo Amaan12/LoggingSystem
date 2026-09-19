@@ -15,4 +15,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `LoggerRegistrySO` ScriptableObject for managing and organizing channel assets.
 - `BuildLogger` on-screen runtime GUI console monitor for development builds.
 - `LogAllTest` and `LogTest` utility components and Editor menu item (`Tools > Logging > Log All Loggers`).
-- Package sample (`Samples~/Resources`) containing 29 pre-configured category channels and registry asset.
+- Package sample containing 29 pre-configured category channels and registry asset organized in the `Resources/Logger` structure.

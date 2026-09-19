@@ -38,9 +38,9 @@ Add the package entry directly to your project's `Packages/manifest.json` under 
 1. In the **Package Manager** window, select **Logging System** under **Packages**.
 2. Switch to the **Samples** tab in the details panel on the right.
 3. Click **Import** next to **Default Resources**.
-   * Unity imports the sample assets to `Assets/Samples/Logging System/1.0.0/Resources/Logger`.
-   * Because Unity scans all `Resources` folders across your project, `LogService` will detect it right away.
-4. *(Optional)* Alternatively, you can move the imported `Resources` folder to your project's root asset directory (`Assets/Resources/Logger`).
+   * Unity imports the sample into your project with the direct `Resources/Logger/LoggerRegistrySO` folder structure (located at `Assets/Samples/Logging System/1.0.0/Default Resources/Resources/Logger/`).
+   * Because Unity automatically indexes any folder named `Resources` anywhere in the project, `LogService` finds `Resources/Logger/LoggerRegistrySO` out-of-the-box!
+4. *(Optional)* If you prefer your resources directly under the root `Assets/Resources` folder, you can simply move or copy the `Resources/Logger` folder into `Assets/Resources/Logger`.
 5. Customize, toggle, or add channels in `Resources/Logger/Loggers/` to fit your project.
 
 ---
